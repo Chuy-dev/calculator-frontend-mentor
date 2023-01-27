@@ -2,7 +2,7 @@ const display = document.querySelector('.display')
 const btn = document.getElementsByClassName('btn')
 const btnArray = Array.from(btn)
 
-btnArray.forEach( (button) => {
+btnArray.forEach((button) => {
   button.addEventListener('click', () => {
     calculator(button, display)
   })
@@ -41,5 +41,12 @@ function reset(display) {
 }
 
 function deleted(display) {
-  display.innerHTML = 0
+  let newDisplay = display.innerHTML 
+
+  if (newDisplay.length == 1) {
+    display.innerHTML = 0
+  } else {
+    newDisplay = newDisplay.substring(0, newDisplay.length -1)
+    display.innerHTML = newDisplay
+  }
 }
